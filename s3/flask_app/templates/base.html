@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- href="{{url_for('static', filename='output.css')}}" -->
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='output.css')}}" type="text/css"> -->
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Group3</title>
+    {% endif %}
+</head>
+<body>
+    {% block header %}
+    <h1>Overrideable Content</h1>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="container mx-auto w-full md:w-2/3 lg:w-1/3">
+
+    <h1 class="text-3xl text-neutral-950 dark:text-neutral-100 font-bold"> Welcome, {{current_user.username}}!</h1>    
+    <!-- Log Meeting Form-->
+    <div>
+        <h3>Log your team's meeting</h3>
+        <form method="POST">
+            {{ LogMeeting.hidden_tag() }}
+        
+            <label for="members">{{ LogMeeting.members.label }}</label>
+            {{ LogMeeting.members(size=50) }}
+        
+            <button type="submit">{{ LogMeeting.submit.label }}</button>
+        </form>
+    </div>
+    
+    <!-- User info-->
+    </div>
+        {% if current_user.group %}
+        <h3>Your group: {{current_user.group.group_name}}</h3>
+        {%endif%}
+
+        <h3>Your strengths</h3>
+        {%for s in current_user.strengths%}
+        <li>{{s}}</li>
+        {%endfor%}
+    <div>
+
+    </div>
+</div>
+
+
+{% endblock %}

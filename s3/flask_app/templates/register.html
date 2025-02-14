@@ -1,0 +1,73 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title">Create an account</h1>
+
+    <hr>
+
+    <form method="POST" class="form_borader" action="">
+        {{ form.hidden_tag() }}
+        <!-- Username Field -->
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", placeholder="Enter username") }}
+            {% for error in form.username.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="Enter email") }}
+            {% for error in form.email.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="Enter password") }}
+            {% for error in form.password.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+            {{ form.confirm_password.label(class="form-label") }}
+            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+            {% for error in form.confirm_password.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Strengths Selection -->
+        <div class="form-group">
+            {{ form.select_field.label(class="form-label") }}
+            <select class="form-control" name="select_field" multiple>
+                {% for value, label in form.select_field.choices %}
+                    <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+            {% for error in form.select_field.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Group Field -->
+        <div class="form-group">
+            {{ form.group.label(class="form-label") }}
+            {{ form.group(class="form-control", placeholder="Enter group name") }}
+            {% for error in form.group.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary mt-3">{{ form.submit.label.text }}</button>
+    </form>
+</div>
+{% endblock %}

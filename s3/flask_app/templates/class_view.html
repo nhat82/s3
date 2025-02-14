@@ -1,0 +1,20 @@
+{% extends "header.html" %} {% block content %}
+<div class="main-container">
+  <h2 class="main-title">Class View strengths</h2>
+
+    <head>
+      {{ graph.inject_css() }}
+    </head>
+    <body>
+      {{ graph.inject_js() }}
+      {{ graph.inject_graph() }}
+    </body>
+
+    <div>
+      {%for i, c in sorted_strength_count%}
+      <li>{{i}}: {{c}}</li>
+      {%endfor%}
+    </div>
+</div>
+
+{% endblock %}
